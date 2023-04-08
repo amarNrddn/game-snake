@@ -1,0 +1,45 @@
+html,
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+
+.board{
+    display: grid;
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template: repeat(29, 1fr)/repeat(29, 1fr) ;
+}
+
+.board .food {
+    background-image: url(../assets/food.png);
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.board .player {
+    background-image: url(../assets/player.png);
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#title {
+    opacity: 0;
+    visibility: visible;
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    color: #fff;
+}
+
+.score {
+    text-align: center;
+    background-color: #fff;
+}
