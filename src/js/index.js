@@ -78,12 +78,10 @@ const gems = {
         levelUp.textContent = `${config.level.level}`
         showLevel.textContent = `${config.level.title}`
     },
-
     levelUp() {
         if (config.score.score % 5 == 0) {
             const level = config.level.level += 1
             console.log(`levelUp: ${level}`)
-            // this.ShowLevel()
         }
     },
     isWin() {
