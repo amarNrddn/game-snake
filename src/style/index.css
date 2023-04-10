@@ -40,6 +40,21 @@ html,
 }
 
 .score {
+    position: relative;
     text-align: center;
     background-color: #fff;
+}
+.showScore {
+    color: #fff;
+    text-align: center;
+}
+
+.level {
+    text-align: center;
+    background-color: #fff;
+}
+
+.showLevel{
+    color: #fff;
+    text-align: center;
 }

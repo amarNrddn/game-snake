@@ -3,11 +3,22 @@ const board = document.querySelector('.board')
 const randomPosition = () => Math.floor(Math.random() * 29) + 1
 
 let config = {
-    sepeed: 500,
+    sepeed: 200,
     score: {
         x: 25,
         y: 4,
-        score: 1
+        showX: 25,
+        showY: 3,
+        score: 1,
+        title: 'Score'
+    },
+    level: {
+        x: 27,
+        y: 4,
+        showX: 27,
+        showY: 3,
+        title: "level",
+        level: 1
     },
     player: {
         y: randomPosition(),
@@ -33,7 +44,7 @@ let config = {
             title.style.opacity = "0"
             title.style.zIndex = "-1"
         }, 3000)
-    }
+    },
 }
 
 const gems = {
@@ -43,22 +54,42 @@ const gems = {
     createPlayer() {
         board.innerHTML += `<div class="player" id="player" style="grid-area: ${config.player.y} / ${config.player.x}"></div>`
     },
-    showScore() {
-        board.innerHTML += `<div class="score" id="score" style="grid-area: ${config.score.y} / ${config.score.x}"></div>`
-        const score = document.getElementById('score')
-        score.textContent = `${config.score.score}`
-    },
     movePlayer() {
         config.player.x += config.velocity.x
         config.player.y += config.velocity.y
     },
-    levelUp() {
+    showScore() {
+        board.innerHTML += `<div class="score" id="score" style="grid-area: ${config.score.y} / ${config.score.x}"></div>`
+        board.innerHTML += `<div class="showScore" id="showScore" style="grid-area: ${config.score.showY} / ${config.score.showX}"></div>`
+        const showScore = document.getElementById('showScore')
+        const score = document.getElementById('score')
+        showScore.textContent = `${config.score.title}`
+        score.textContent = `${config.score.score}`
+    },
+    secoreUp() {
         const score = config.score.score += 1
         console.log(score)
+    },
+    showLevel() {
+        board.innerHTML += `<div class='level' id='level' style="grid-area: ${config.level.y} / ${config.level.x}"></div>`
+        board.innerHTML += `<div class="showLevel" id="showLevel" style="grid-area: ${config.level.showY} / ${config.level.showX}"></div>`
+        const levelUp = document.getElementById('level')
+        const showLevel = document.getElementById('showLevel')
+        levelUp.textContent = `${config.level.level}`
+        showLevel.textContent = `${config.level.title}`
+    },
+
+    levelUp() {
+        if (config.score.score % 5 == 0) {
+            const level = config.level.level += 1
+            console.log(`levelUp: ${level}`)
+            // this.ShowLevel()
+        }
     },
     isWin() {
         if (config.player.y == config.food.y && config.player.x == config.food.x) {
             config.showTitle()
+            this.secoreUp()
             this.levelUp()
             return true
         }
@@ -119,6 +150,7 @@ const startGame = () => {
     gems.movePlayer()
     headMovePosition()
     gems.showScore()
+    gems.showLevel()
     gems.resetPlayerPosition()
 
     const win = gems.isWin()
