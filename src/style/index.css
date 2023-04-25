@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+
 html,
 * {
     padding: 0;
@@ -29,15 +31,6 @@ html,
     background-repeat: no-repeat;
 }
 
-#title {
-    opacity: 0;
-    visibility: visible;
-    z-index: 0;
-    position: absolute;
-    top: 50%;
-    left: 45%;
-    color: #fff;
-}
 
 .score {
     position: relative;
@@ -58,3 +51,64 @@ html,
     color: #fff;
     text-align: center;
 }
+
+#name {
+    opacity: 0;
+    visibility: visible;
+    z-index: 0;
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    color: #fff;
+    font-family: 'Poppins';
+}
+
+#about {
+    color: #fff;
+    opacity: 0;
+    visibility: visible;
+    z-index: 0;
+    position: absolute;
+    top: 15%;
+    left: 3%;
+    font-family: 'Poppins';
+}
+
+#skils {
+    color: #fff;
+    opacity: 0;
+    visibility: visible;
+    z-index: 0;
+    position: absolute;
+    top: 20%;
+    left: 3%;
+    font-family: 'Poppins';
+}
+
+.html {
+    color: #E44D26;
+}
+
+.css {
+    color: #264DE4;
+}
+
+.js {
+    color: #F7DF1E;
+}
+
+#profile {
+    color: #fff;
+    opacity: 0;
+    visibility: visible;
+    z-index: 0;
+    position: absolute;
+    top: 25%;
+    left: 3%;
+    font-family: 'Poppins';
+}
+
+#profile a {
+    text-decoration: none;
+}
+

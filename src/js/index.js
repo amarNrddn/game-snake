@@ -32,19 +32,33 @@ let config = {
         x: 0,
         y: 0,
     },
-    showTitle() {
-        const title = document.getElementById('title')
+    showName() {
+        const name = document.getElementById('name')
 
-        title.style.visibility = "visible"
-        title.style.opacity = "1"
-        title.style.zIndex = "1"
-
-        setTimeout(() => {
-            title.style.visibility = "hidden"
-            title.style.opacity = "0"
-            title.style.zIndex = "-1"
-        }, 3000)
+        name.style.visibility = "visible"
+        name.style.opacity = "1"
+        name.style.zIndex = "1"
     },
+    showAbout(){
+        const about = document.getElementById('about')
+        about.style.visibility = "visible"
+        about.style.opacity = "1"
+        about.style.zIndex = "1"
+    },
+
+    showSkils() {
+        const skils = document.getElementById('skils')
+        skils.style.visibility = "visible"
+        skils.style.opacity = "1"
+        skils.style.zIndex = "1"
+    },
+
+    showProfile() {
+        const profile = document.getElementById('profile')
+       profile.style.visibility = "visible"
+       profile.style.opacity = "1"
+       profile.style.zIndex = "1"
+    }
 }
 
 const gems = {
@@ -79,14 +93,21 @@ const gems = {
         showLevel.textContent = `${config.level.title}`
     },
     levelUp() {
-        if (config.score.score % 5 == 0) {
-            const level = config.level.level += 1
-            console.log(`levelUp: ${level}`)
+        switch(config.score.score){
+            case 5 :
+                config.showAbout()
+                break;
+            case 10 :
+                config.showSkils()
+                break;
+            case 15 : 
+                config.showProfile()
+                break;
         }
     },
     isWin() {
         if (config.player.y == config.food.y && config.player.x == config.food.x) {
-            config.showTitle()
+            config.showName()
             this.secoreUp()
             this.levelUp()
             return true
